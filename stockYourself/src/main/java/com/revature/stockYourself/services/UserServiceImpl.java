@@ -197,7 +197,7 @@ public class UserServiceImpl implements UserService {
 			Portfolio existingPort = portRepo.findByPortfolioId(port.getPortfolioId());
 			List<StockString> stocks = new ArrayList<>();
 			existingPort.getPortfolioStringStocks().forEach(stock ->{
-				stockStringRepo.getById(stock.getStockStringId());
+				//stockStringRepo.getById(stock.getStockStringId());
 				stocks.add(stock);
 			});
 			return stocks;
@@ -218,29 +218,29 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public Portfolio addStockToPortfolio(Portfolio port, StockString stock) {
-		if(port != null && stock != null) {
-			Portfolio existingport = portRepo.findByPortfolioId(port.getPortfolioId());
-			if(existingport.getPortfolioStringStocks().contains(stock)) {
-				return existingport;
-			}else {
-				existingport.getPortfolioStringStocks().add(stockStringRepo.findBystockStringId(stock.getStockStringId()));
-				return existingport;
-			}
-			
-		}
+//		if(port != null && stock != null) {
+//			Portfolio existingport = portRepo.findByPortfolioId(port.getPortfolioId());
+//			if(existingport.getPortfolioStringStocks().contains(stock)) {
+//				return existingport;
+//			}else {
+//				existingport.getPortfolioStringStocks().add(stockStringRepo.findBystockStringId(stock.getStockStringId()));
+//				return existingport;
+//			}
+//
+//		}
 		return null;
 	}
 
 	@Override
 	public Portfolio removeStockFromPortfolio(Portfolio port,StockString stock) {
-		if(port != null && stock != null) {
-			Portfolio existingport = portRepo.findByPortfolioId(port.getPortfolioId());
-			if(existingport.getPortfolioStringStocks().contains(stock)) {
-				existingport.getPortfolioStringStocks().remove(stockStringRepo.findBystockStringId(stock.getStockStringId()));
-				return existingport;
-			}
-		return null;
-	}
+//		if(port != null && stock != null) {
+//			Portfolio existingport = portRepo.findByPortfolioId(port.getPortfolioId());
+//			if(existingport.getPortfolioStringStocks().contains(stock)) {
+//				existingport.getPortfolioStringStocks().remove(stockStringRepo.findBystockStringId(stock.getStockStringId()));
+//				return existingport;
+//			}
+//		return null;
+
 	return null;
 }
 }
