@@ -159,16 +159,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<Post> getAllPostsByPortfolio(Portfolio portfolioPostedOn) throws CreatorWasNullException {
 		List<Post> allPostByPortfolio = new ArrayList<Post>();
-		if (portfolioPostedOn != null) {
-			List<Post> allPost = postRepo.findAll();
-			for ( Post post : allPost) {
-				if (post.getPortfolioPostedOn().getPortfolioId() == portfolioPostedOn.getPortfolioId()) {
-					allPostByPortfolio.add(post);
-				}
-			}
-		} else {
-			throw new CreatorWasNullException();
-		}
+//		if (portfolioPostedOn != null) {
+//			List<Post> allPost = postRepo.findAll();
+//			for ( Post post : allPost) {
+//				if (post.getPortfolioPostedOn().getPortfolioId() == portfolioPostedOn.getPortfolioId()) {
+//					allPostByPortfolio.add(post);
+//				}
+//			}
+//		} else {
+//			throw new CreatorWasNullException();
+//		}
 			return allPostByPortfolio;
 	}
 		
@@ -193,15 +193,15 @@ public class UserServiceImpl implements UserService {
 	
 	@Override
 	public List<StockString> getPortfolioStocks(Portfolio port) {
-		if(port != null) {
-			Portfolio existingPort = portRepo.findByPortfolioId(port.getPortfolioId());
-			List<StockString> stocks = new ArrayList<>();
-			existingPort.getPortfolioStringStocks().forEach(stock ->{
-				//stockStringRepo.getById(stock.getStockStringId());
-				stocks.add(stock);
-			});
-			return stocks;
-		}
+//		if(port != null) {
+//			Portfolio existingPort = portRepo.findByPortfolioId(port.getPortfolioId());
+//			List<StockString> stocks = new ArrayList<>();
+//			existingPort.getPortfolioStringStocks().forEach(stock ->{
+//				//stockStringRepo.findByStockString(stock);
+//				stocks.add(stock);
+//			});
+//			return stocks;
+//		}
 		return null;
 	}
 
@@ -217,13 +217,13 @@ public class UserServiceImpl implements UserService {
 
 	
 	@Override
-	public Portfolio addStockToPortfolio(Portfolio port, StockString stock) {
+	public Portfolio addStockToPortfolio(Portfolio port, String stock) {
 //		if(port != null && stock != null) {
 //			Portfolio existingport = portRepo.findByPortfolioId(port.getPortfolioId());
-//			if(existingport.getPortfolioStringStocks().contains(stock)) {
+//			if(existingport.getPortfolioStringStocks().contains(stockStringRepo.findByStockString(stock))) {
 //				return existingport;
 //			}else {
-//				existingport.getPortfolioStringStocks().add(stockStringRepo.findBystockStringId(stock.getStockStringId()));
+//				existingport.getPortfolioStringStocks().add(stock);
 //				return existingport;
 //			}
 //

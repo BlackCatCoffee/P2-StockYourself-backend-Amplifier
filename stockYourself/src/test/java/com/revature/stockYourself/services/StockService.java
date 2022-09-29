@@ -30,8 +30,16 @@ public class StockService {
         String stockString = "AAPL";
         Stock stock = YahooFinance.get(stockString);
         when(repository.findByStockString(stockString)).thenReturn(stock);
+        StockData stockData = new StockData(
+                stock.getName(),
+                stock.getQuote().getPrice(),
+                stock.getStats().getPeg(),
+                stock.getQuote().getChange(),
+                stock.getCurrency(),
+                stock.getHistory()
+        );
         StockData actualStock = stockService.getStockDataBySymbol(stockString);
-        assertEquals(stock,actualStock);
+        assertEquals(stockData,actualStock);
 
     }
 }

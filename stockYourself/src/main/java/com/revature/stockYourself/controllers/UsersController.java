@@ -85,7 +85,7 @@ public class UsersController {
 
 
 	@PostMapping(path="/stock/{userId}")
-	public ResponseEntity<Void> addStockToPortfolio(@RequestBody Portfolio existingPort,@RequestBody StockString stock, @PathVariable int userId) throws Exception {
+	public ResponseEntity<Void> addStockToPortfolio(@RequestBody Portfolio existingPort,@RequestBody String stock, @PathVariable int userId) throws Exception {
 		
 		if(stock != null && existingPort != null) {
 			userServ.addStockToPortfolio(existingPort, stock);

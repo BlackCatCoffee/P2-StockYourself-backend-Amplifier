@@ -32,7 +32,7 @@ public interface UserService {
 	public void deletePost(Post postToDelete, User loggedInUser) throws UserIsNotThePostCreatorException, PostAndOrUserWasNull;	
 
 	public List<StockString> getPortfolioStocks(Portfolio port);
-	public Portfolio addStockToPortfolio(Portfolio port,StockString stock);
+	public Portfolio addStockToPortfolio(Portfolio port,String stock);
 	public Portfolio removeStockFromPortfolio(Portfolio port,StockString stock);
 	public Portfolio getPortfolioByPortfolioId(int portfolioWithPostsId) throws NoPortfolioByUserIdException;
 
